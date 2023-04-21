@@ -9,7 +9,7 @@ int data;
 struct array *next;
 }*node;
 
-node getnode()  //creating the new node
+node getnode() //creating a newnode
 {int a;
     node newn;
     newn=(node)malloc(sizeof(struct array));
@@ -19,14 +19,14 @@ node getnode()  //creating the new node
         exit(0);
     }
     fscanf(fptr,"%d",&a);
-
+//printf("%d",a);
     newn->data=a;
 
     newn->next=NULL;
     return newn;
 
 }
-node insert(node head)  //inserting node at first
+node insert(node head) //inserting node at first
 {node newn=getnode();
     if(head==NULL)
     {
@@ -38,7 +38,7 @@ node insert(node head)  //inserting node at first
     head=newn;
     return head;
 }
-node sort(node head) //sorting the numbers in linked list
+node sort(node head)  //function to sort numbers in linked list
 {
 node cur,p;
 int temp;
@@ -69,7 +69,7 @@ return head;
 main()
 {node head=NULL;
     fptr=fopen("file23.txt","r");
-    fptr1=fopen("file24.txt","w");//opening the file
+    fptr1=fopen("file24.txt","w");
 fscanf(fptr,"%d",&n);
 for(int i=1;i<=n;i++)
 {
@@ -81,8 +81,8 @@ node cur=head;
 
 for(int i=1;i<=n;i++)
 {
-    
-    fprintf(fptr1," %d",cur->data);   //writing the sorted numbers into the file
+    printf(" %d",cur->data);
+    fprintf(fptr1," %d",cur->data);
     cur=cur->next;
 }
 
