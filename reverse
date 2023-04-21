@@ -1,0 +1,29 @@
+REVERSE ARRAY STORED IN FILE
+#include<stdio.h>
+int a[100],temp;
+FILE *fptr,*fptr2;
+main()
+{int n;
+
+    fptr=fopen("file3.txt","r"); //OPENING A FILE TO READ DATA
+    fptr2=fopen("2.txt","w");  //OPENING FILE TO WRITE SORTED ARRAY
+    fscanf(fptr,"%d",&n);
+    for(int i=0;i<n;i++)
+    {
+       fscanf(fptr,"%d",&a[i]);  ///READING THE ARRAY FROM FILE
+           
+
+    }
+    for(int j=0;j<n/2;j++)   //REVERSING THE ARRAY
+    {
+        temp=a[j];
+        a[j]=a[n-j-1];
+        a[n-j-1]=temp;
+    }
+ for(int i=0;i<n;i++)
+ {
+     fprintf(fptr2,"%d ",a[i]);     //WRITING THE SORTED ARRAY INTO THE FILE
+ }
+ fclose(fptr);
+ fclose(fptr2);
+}
