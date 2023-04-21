@@ -4,7 +4,7 @@ FILE *fptr,*fptr2;
 int a[100],i=0,temp;
 main()
 {
-    fptr=fopen("file1.txt","r");
+    fptr=fopen("file1.txt","r");//opening the file to read array
     fptr2=fopen("file2.txt","w");//opening the files
     while(!feof(fptr))
     {
