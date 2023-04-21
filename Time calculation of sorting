@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<time.h>
+
+FILE *fptr;
+int a[100],temp;
+double start,end;
+main()
+{
+    fptr=fopen("file90.txt","w+");
+    for(int i=0;i<20000;i++)
+    {
+        fscanf(fptr,"%d",&a[i]);  //reading array
+    }
+  start=clock();   //starting the clock
+    for(int i=0;i<100;i++)
+    {
+
+       for(int j=i+1;j<100;j++)   //sorting the array
+       {
+           if(a[i]>a[j])
+           {
+               temp=a[i];
+               a[i]=a[j];
+               a[j]=temp;
+           }
+       }
+    }
+    end=clock();
+     for(int i=0;i<100;i++)
+    {
+        fprintf(fptr,"%d  ",&a[i]);   // writing the sorted array into the file
+    }
+    fprintf(fptr,"\n%lf",(end-start)/CLOCKS_PER_SEC);  //writing thhe time required for sorting into the file
+    fclose(fptr);
+}
+
